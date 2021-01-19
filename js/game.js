@@ -70,7 +70,7 @@
                    text("Player2 :"+allPlayers.player2.score,50,100);
                 }
               }
-                   if(player.score>=10){
+                   if(player.score>=50){
                        game.update(2);
                        this.end();
                        textSize(80);
