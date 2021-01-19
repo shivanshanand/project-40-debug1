@@ -62,11 +62,25 @@
                     if(index === player.index){
                    fill("yellow");
                    textSize(25);
-                   text(allPlayers[plr].name ,x-35,y+40);
-                   
+                   text(allPlayers[plr].name ,x-35,y+65);
+
+                   fill("yellow");
+                   textSize(25);
+                   text("Player1 :"+allPlayers.player1.score,50,50);
+                   text("Player2 :"+allPlayers.player2.score,50,100);
                 }
-            }
-        }
+              }
+                   if(player.score>=10){
+                       game.update(2);
+                       this.end();
+                       textSize(80);
+                       fill("lightgreen")
+                       text("Game Over",300,300);
+                       fruitGroup.setVelocityYEach(0);
+                       player.distance =0
+
+                   }  
+                }
 
                 if (keyIsDown(RIGHT_ARROW) && player.index !== null) {
                     player.distance -= 10
@@ -103,6 +117,9 @@
                     for(var i=0;i<fruitGroup.length;i++){
                       if(fruitGroup.get(i).isTouching(players)){
                         fruitGroup.get(i).destroy();
+
+                        player.score=player.score+1;
+                        player.update();
                        }
                     }
                 }
